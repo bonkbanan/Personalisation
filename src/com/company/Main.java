@@ -16,7 +16,7 @@ public class Main {
 
         Person denys = new Person();
         denys.setFirstName("Denys");
-        denys.setMidtName("Balan");
+        denys.setMidName("Balan");
         denys.setLastName("Yurievich");
         denys.setCity("Chernivtsi");
         denys.setStreet("st. Ukranian");
@@ -24,6 +24,9 @@ public class Main {
         denys.setPhoneNumber("08800355535");
         denys.setDateOfBirth(LocalDate.of(2006, Month.JANUARY, 7));
         System.out.println(denys.toString());
-
+        System.out.println();
+        System.out.println(denys.toJSON());
+        System.out.println();
+        System.out.println(denys.toXML());
     }
 }

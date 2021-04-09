@@ -7,9 +7,9 @@ package com.company;/*
 
 import java.time.LocalDate;
 
-public class Person {
+public class Person implements IPerson {
     private String firstName;
-    private String midtName;
+    private String midName;
     private String lastName;
     private String city;
     private String street;
@@ -21,12 +21,12 @@ public class Person {
     public Person() {
     }
 
-    public Person(String firstName, String midtName, String lastName,
+    public Person(String firstName, String midName, String lastName,
                   String city, String street, String house,
                   String houseNumber, String phoneNumber,
                   LocalDate dateOfBirth) {
         this.firstName = firstName;
-        this.midtName = midtName;
+        this.midName = midName;
         this.lastName = lastName;
         this.city = city;
         this.street = street;
@@ -44,12 +44,12 @@ public class Person {
         this.firstName = firstName;
     }
 
-    public String getMidtName() {
-        return midtName;
+    public String getMidName() {
+        return midName;
     }
 
-    public void setMidtName(String midtName) {
-        this.midtName = midtName;
+    public void setMidName(String midName) {
+        this.midName = midName;
     }
 
     public String getLastName() {
@@ -112,7 +112,7 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "firstName='" + firstName + '\'' +
-                ", midtName='" + midtName + '\'' +
+                ", midName='" + midName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
@@ -121,5 +121,36 @@ public class Person {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 '}';
+    }
+
+    @Override
+    public String toXML() {
+        String xml ="<Person>" +"\n+" +
+                "<firstName>" + this.getFirstName() + "</firstName>" +"\n"+
+                "<midName>" + this.getMidName() + "</midName>" + "\n"+
+                "<lastName>" + this.getLastName() + "</lastName>" + "\n" +
+                "<city>" + this.getCity() + "</city>" + "\n" +
+                "<street>" + this.getStreet() + "</street>" + "\n" +
+                "<house>"  + this.getHouse() + "</house>" + "\n" +
+                "<houseNumber>" + this.getHouseNumber() + "</houseNumber>" + "\n"+
+                "<phoneNumber>" + this.getPhoneNumber() + "</phoneNumber>" + "\n" +
+                "<dateOfBirth>" + this.getDateOfBirth() + "</dateOfBirth>"+ "\n"+
+                "</Person>";
+        return xml;
+    }
+
+    @Override
+    public String toJSON() {
+        String json = "Person{" +
+                "\"firstName\":" + this.getFirstName() + ","+
+                "\"midName\":" + this.getMidName() + "," +
+                "\"lastName\"" + this.getLastName() + "," +
+                "\"city\"" + this.getCity() + "," +
+                "\"street\"" + this.getStreet() + "," +
+                "\"house\"" + this.getHouse() + "," +
+                "\"houseNumber\"" + this.getHouseNumber() + "," +
+                "\"phoneNumber\"" + this.getPhoneNumber() + "," +
+                "\"dateOfBirth\"" + this.getDateOfBirth() + "}";
+        return json;
     }
 }
